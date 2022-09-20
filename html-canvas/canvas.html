@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myCanvas {
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    
+
+    <canvas id="myCanvas" width="200" height="100"> </canvas>
+    <button id="download-btn">Download</button>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const downloadBtn = document.getElementById("download-btn");
+
+      var context = canvas.getContext("2d");
+
+      //Inserting image in canvas
+      var img = new Image();
+      img.onload = function () {
+        context.drawImage(img, 0, 0);
+      };
+      img.src = "./canvas.png";
+
+      //When download button is clicked
+      downloadBtn.addEventListener("click", () => {
+        var img = canvas
+          .toDataURL("image/png", 0.5)
+        //   .replace("image/png", "image/octet-stream");
+
+        const createEl = document.createElement("a");
+        createEl.href = img;
+        createEl.download = "download-this-canvas";
+        createEl.click();
+        createEl.remove();
+      });
+
+
+      /*
+        Useful links
+        https://codepen.io/smpnjn/pen/mdpEWEN OR https://fjolt.com/article/html-canvas-save-as-image
+        https://www.sanwebe.com/snippet/downloading-canvas-as-image-dataurl-on-button-click
+        https://stackoverflow.com/questions/10673122/how-to-save-canvas-as-an-image-with-canvas-todataurl
+
+
+       * */
+
+    </script>
+  </body>
+</html>

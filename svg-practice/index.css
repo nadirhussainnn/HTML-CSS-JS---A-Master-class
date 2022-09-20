@@ -1,0 +1,49 @@
+
+
+svg {
+  height: 5rem;
+}
+ svg line {
+  stroke: #5f39dd;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-dasharray: 2px 20px;
+  animation: animateline 5s linear both infinite;
+}
+
+
+@-moz-keyframes animateline {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -5rem;
+  }
+}
+
+@-webkit-keyframes animateline {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -5rem;
+  }
+}
+
+@-o-keyframes animateline {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -5rem;
+  }
+}
+
+@keyframes animateline {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -5rem;
+  }
+}
